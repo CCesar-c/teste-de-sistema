@@ -1,0 +1,36 @@
+//npm install @faker-js/faker --save-dev  >> dependencias gerar nomes aleatorios
+describe('Teste completo Mercado1', () => {
+  it('Testa login errado e certo, clientes, produtos, vendas e logout', () => {
+    cy.visit('https://sistema-1-login.netlify.app/');
+    cy.wait(1000)
+    cy.get("#goRegister").click()
+    cy.wait(1000)
+    cy.get("#name").type("cesar")
+    cy.wait(1000)
+    cy.get("#email").type("cesar@gmail.com")
+    cy.wait(1000)
+    cy.get("#password").type("Cesar123")
+    cy.wait(1000)
+    cy.get("#confirmPassword").type("Cesar123")
+    cy.wait(1000)
+    cy.get("#terms").click()
+    cy.wait(1000)
+    cy.get("#createAccountButton").click()
+    cy.wait(1000)
+    cy.get("#goLogin").click()
+    cy.wait(1000)
+    cy.get("#email").type("cesar@gmail.com")
+    cy.wait(1000)
+    cy.get("#password").type("Cesar123")
+    cy.wait(1000)
+    cy.get("#loginButton").click()
+    cy.wait(1000)
+    cy.contains('Excluir').first().click()
+    cy.wait(1000)
+    cy.contains('Excluir').first().click()
+    cy.wait(1000)
+    cy.screenshot('print-tela_atv1')
+    cy.wait(1000)
+    cy.get("#logoutButton").first().click()
+  });
+});

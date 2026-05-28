@@ -1,0 +1,28 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time;
+
+navegador = webdriver.Chrome()
+
+navegador.get("https://sistema-2-loja.netlify.app/")
+time.sleep(1)
+navegador.maximize_window()
+time.sleep(1)
+navegador.find_element(By.XPATH, "//a[contains(., 'Criar Conta')]").click()
+time.sleep(1)
+navegador.find_element(By.ID, "name").send_keys("cesar")
+time.sleep(1)
+navegador.find_element(By.ID, "email").send_keys("cesar@gmail.com")
+time.sleep(1)
+navegador.find_element(By.ID, "password").send_keys("Cesar1231")
+time.sleep(1)
+navegador.find_element(By.XPATH, "//button[contains(., 'Cadastrar')]").click()
+time.sleep(1)
+navegador.switch_to.alert.accept()
+time.sleep(1)
+navegador.find_element(By.ID, "email").send_keys("cesar@gmail.com")
+time.sleep(1)
+navegador.find_element(By.ID, "password").send_keys("Cesar1231")
+time.sleep(1)
+navegador.find_element(By.ID, "loginButton").click()
+time.sleep(1000)

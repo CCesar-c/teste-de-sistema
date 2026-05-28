@@ -1,0 +1,46 @@
+//npm install @faker-js/faker --save-dev  >> dependencias gerar nomes aleatorios
+describe('Teste completo Mercado1', () => {
+  it('Testa login errado e certo, clientes, produtos, vendas e logout', () => {
+    cy.visit('https://sistema-2-loja.netlify.app/');
+
+    cy.wait(1000)
+    cy.contains("Criar Conta").click()
+    cy.wait(1000)
+    cy.get("#name").type("cesar")
+    cy.wait(1000)
+    cy.get("#email").type("cesar@gmail.com")
+    cy.wait(1000)
+    cy.get("#password").type("Cesar123")
+    cy.wait(1000)
+    cy.contains("Cadastrar").click()
+    cy.wait(1000)
+    cy.on('window:confirm', () => true)
+    cy.wait(1000)
+    cy.get("#email").type("cesar@gmail.com")
+    cy.wait(1000)
+    cy.get("#password").type("Cesar123")
+    cy.wait(1000)
+    cy.get("#loginButton").click()
+    cy.wait(1000)
+    cy.get("#depositInput").type("10000")
+    cy.wait(1000)
+    cy.get("#depositButton").click()
+    cy.wait(1000)
+    cy.get("#productsTabButton").click()
+
+    cy.wait(1000)
+    cy.contains("Adicionar ao Carrinho").first().click()
+    cy.wait(1000)
+    cy.on('window:confirm', () => true)
+    cy.wait(1000)
+    cy.contains("Carrinho").first().click()
+    cy.wait(1000)
+    cy.screenshot('print-tela_atv2')
+    cy.wait(1000)
+    cy.get(".checkout").click()
+    cy.wait(1000)
+    cy.get("#finishButton").click()
+    cy.wait(1000)
+    cy.on('window:confirm', () => true)
+  });
+});
